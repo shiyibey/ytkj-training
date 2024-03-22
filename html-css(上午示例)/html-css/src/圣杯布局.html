@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11:圣杯布局</title>
+    <link rel="stylesheet" href="./css/global.css">
+    <link rel="stylesheet" href="./css/layout.css">
+    <link rel="icon" href="./assets/favicon.ico">
+</head>
+<body>
+    <div class="layout-container">
+        <!-- 布局标签都是块元素,自带换行,从上往下排列
+        一般要搭配css才能实现布局效果 -->
+        <!-- header:h5布局标签,用来设置页眉,内部一般嵌套
+        导航栏 logo等 -->
+        <header class="header">
+            <h3 class="title">
+                <img src="./assets/etoak_logo.png"
+                class="logo">
+                弹性盒子圣杯布局
+            </h3>
+            <div class="info">
+                欢迎您回来xxx先生|女士
+            </div>
+        </header>
+        <!-- section:h5布局标签,用来设置页面的主体 -->
+        <section class="section">
+            <!-- aside:h5布局标签,用来设置页面的侧边栏 -->
+            <aside class="aside">
+                <ul>
+                    <!-- 这里的target对应iframe中的name属性值
+                    当链接点击时,目标页会取代iframe中本身引入的页面 -->
+                    <li><a href="./表格.html"
+                    target="etoak">侧边链接1</a></li>
+                    <li><a href="#">侧边链接2</a></li>
+                    <li><a href="#">侧边链接3</a></li>
+                    <li><a href="#">侧边链接4</a></li>
+                    <li><a href="#">侧边链接5</a></li>
+                </ul>
+            </aside>
+            <section class="main">
+                <!-- 引入外部页面到本页面 
+                    iframe:引入外部页面
+                        src:外部页面的路径
+                        frameborder:引入外部页面的边框,默认
+                        0无边框
+                -->
+                <iframe src="./success.html"
+                frameborder="0" 
+                style="width:100%;height:100%"
+                name="etoak"></iframe>
+            </section>
+        </section>
+        <!-- footer:h5布局标签,用来设置页面的页脚 -->
+        <footer class="footer">
+            山东易途科技 2008 - 2022
+        </footer>
+    </div>
+</body>
+</html>

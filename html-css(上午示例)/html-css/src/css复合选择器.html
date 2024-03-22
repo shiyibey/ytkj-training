@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4:css复合选择器</title>
+    <style>
+        span.test{
+            /* 文本倾斜 */
+            font-style: italic;
+        }
+        span.test,h2.test2,p#etoak{
+            background-color: yellow;
+        }
+        div#container div#outter label.info{
+            color:chocolate;
+        }
+        *{
+            font-weight:bolder
+        }
+    </style>
+</head>
+<body>
+    <span>测试1</span>
+    <label class="test">测试2</label>
+    <span class="test">测试3</span>
+    <h2 class="test2">二级标题</h2>
+    <p id="etoak">我是段落</p>
+
+    <div id="container">
+        <div id="outter">
+            济南的<label class="info">冬</label>天就要开始了
+        </div>
+    </div>
+    <div  >
+        <div  >
+            青岛的<label class="info">冬</label>天就要开始了
+        </div>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .main{
+            width: 800px;
+            height: 600px;
+            background: #ccc;
+            display: flex;
+            /*上面这句就把当前元素设置成了 flex容器*/
+            flex-direction: row;
+            /*可以改变排列方式  column列  row行(默认)*/
+            justify-content: space-between;
+            /*justify-content水平方向 排列方式
+                center 居中
+                flex-start 起点开始
+                flex-end 终点开始
+                space-between 贴靠起点 终点 中间间隔平分
+            */
+
+            /*align-items: center;*/
+            /*align-items 垂直 排列方式
+                            center 居中
+                            flex-start 起点开始
+                            flex-end 终点开始
+                            space-between 贴靠起点 终点 中间间隔平分
+               */
+
+        }
+        .main div{
+            background: orange;
+            border: 2px solid #666;
+            width: 120px;
+            /*px 50vw占浏览器窗口  %占父容器百分比  */
+            height: 120px;
+            /*px vh %*/
+        }
+        .flex1{
+            flex: 1;
+            /*设置项目所占容器的比例*/
+        }
+
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+
+</body>
+</html>

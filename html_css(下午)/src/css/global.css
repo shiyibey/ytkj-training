@@ -1,0 +1,17 @@
+@charset "utf-8";
+
+html,body{
+    margin: 0;
+    padding: 0;
+    /*为了内部元素可以使用百分比*/
+    height: 100%;
+}
+
+
+
+
+
+
+
+
+

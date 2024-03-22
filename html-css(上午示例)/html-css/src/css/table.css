@@ -1,0 +1,39 @@
+@charset "utf-8";
+
+.table-container{
+    /* 设置背景色 */
+    background-color: silver;
+    /* 开启弹性盒子 */
+    display: flex;
+    /* 主轴居中 */
+    justify-content: center;
+    /* 交叉轴居中 */
+    align-items: center;
+    /* 设置容器高度 */
+    height:100vh;
+}
+
+.tb{
+    /* 设置宽度 */
+    width:70vw;
+    /* 如果表格中的边框存在多条,则合并为一根 */
+    border-collapse: collapse;
+    /* 设置阴影 */
+    box-shadow: 20px 20px 20px gray;
+}
+
+.tb,tr,th,td{
+    /* 设置边框 */
+    border:solid 1px #ddd;
+}
+
+.tb thead{
+    background-color: coral;
+    color:navy;
+}
+
+.tb tbody{
+    background-color: #b1c9b3;
+    color:brown;
+}
+

@@ -1,0 +1,33 @@
+/* 独立的css文件以 .css 结尾,全文严格区分大小写,毫无
+容错性,不会出现报错信息
+以下表示设置css编码,默认就是utf-8 可以省略*/
+@charset "utf-8";
+
+/* 设置a链接默认的样式 */
+a{
+    /* 设置字体颜色 */
+    color:#82d8cf;
+    /* 去掉自带的下划线 */
+    text-decoration: none;
+}
+
+/* 通过设置伪类可以用来渲染某种状态下的样式
+    选择器:伪类{}
+    :hover:表示鼠标滑过时的样式
+*/
+a:hover{
+    color:#ff770f;
+    /* 添加下划线 */
+    text-decoration: underline;
+    /* 加粗字体 */
+    font-weight: 900;
+}
+
+/* 设置链接被访问过之后的样式 */
+a:visited{
+    color:#663399;
+}
+
+div{
+    background-color: tomato;
+}

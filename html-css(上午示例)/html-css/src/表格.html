@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12:表格</title>
+    <link rel="stylesheet" href="./css/global.css">
+    <link rel="stylesheet" href="./css/table.css">
+    <link rel="icon" href="./assets/favicon.ico">
+</head>
+<body>
+    <!-- &gt; 表示大于号  &lt; 表示小于号 -->
+    <div class="table-container">
+        <!-- 
+            table:表格,表格最简略的写法中必须嵌套以下标签
+                tr:表示一行
+                td:表示一列
+                横行竖列 row表示行 column表示列
+                table>tr>td
+        -->
+        <table class="tb">
+            <!-- caption:表格标题,不是必须 -->
+            <caption>表格标题</caption>
+            <!-- thead:用来嵌套表头,所谓表头是指表格的
+            第一行,thead不会自动添加任何结构样式,多搭配css使用-->
+            <thead>
+                <tr>
+                    <!-- th:就是td,一般用在表头中,文本自动加粗
+                    居中,默认是左对齐的,多使用在表头中 -->
+                    <th>列1</th>
+                    <th>列2</th>
+                    <th>列3</th>
+                    <th>列4</th>
+                </tr>
+            </thead>
+            <!-- tbody:用来嵌套表格的主体,注意如果我们不写
+            浏览器会自动渲染,也是搭配css使用,不自带任何结构样式 -->
+            <tbody>
+                <tr>
+                    <td>列1</td>
+                    <td>列2</td>
+                    <td>列3</td>
+                    <td>列4</td>
+                </tr>
+                <tr>
+                    <td>列1</td>
+                    <td>列2</td>
+                    <td>列3</td>
+                    <td>列4</td>
+                </tr>
+                <tr>
+                    <td>列1</td>
+                    <td>列2</td>
+                    <td>列3</td>
+                    <td>列4</td>
+                </tr>
+                <tr>
+                    <td>列1</td>
+                    <td>列2</td>
+                    <td>列3</td>
+                    <td>列4</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

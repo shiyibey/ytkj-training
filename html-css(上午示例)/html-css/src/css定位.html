@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css定位</title>
+    <style>
+        .container{
+            border:solid 2px black;
+            /* 为了后代元素进行绝对定位,则此处添加
+            相对定位,不书写偏移量不会对元素造成任何影响 */
+            position: relative;
+            margin:0 auto;
+            width:80vw;
+            height:100vh;
+        }
+        .sub1{
+            border: solid 2px crimson;
+            position: relative;
+            top:300px;
+            left:200px;
+        }
+        .sub2{
+            border: solid 2px coral;
+            position: absolute;
+            top:400px;
+            left:400px;
+        }
+        .sub3{
+            border: solid 2px yellow;
+        }
+        .sub4{
+            border: solid 2px yellowgreen;
+        }
+        .sub5{
+            border: solid 2px aqua;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sub1">我是层1</div>
+        <div class="sub2">我是层2</div>
+        <div class="sub3">我是层3</div>
+        <div class="sub4">我是层4</div>
+        <div class="sub5">我是层5</div>
+    </div>
+</body>
+</html>
