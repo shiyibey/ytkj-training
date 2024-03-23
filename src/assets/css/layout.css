@@ -1,0 +1,115 @@
+@charset "utf-8";
+
+/* 设置整个外侧容器 */
+.layout-container{
+    /* 开启弹性盒子 */
+    display: flex;
+    /* 从上往下排列 */
+    flex-direction: column;
+    /* 设置整体高度 */
+    height:100vh;
+}
+
+/* 设置页眉与页脚*/
+.header,.footer{
+    /* 设置页眉高度 */
+    height:50px;
+    /* 设置页眉背景 */
+    background-color: #2d3a4b;
+    /* 设置字体颜色 */
+    color:whitesmoke;
+    /* 开启弹性盒子 */
+    display:flex;
+    /* 主轴对齐方式 */
+    justify-content: space-between;
+    /* 交叉轴对齐 */
+    align-items: center;
+}
+
+/* 单独设置页脚 */
+.footer{
+    height:40px;
+    justify-content: center;
+    font-size: x-small;
+}
+
+/* 设置主体 */
+.section{
+    /* 
+        此参数只能使用在 item 项目中
+        书写完整为
+        flex:1 1 auto;
+        flex后面共有三个参数
+        flex:flex-grow flex-shrink flex-basis;
+        flex-grow:默认0,如果容器存在剩余空间,则项目不放大,当我们
+        更改为1时,则项目放大撑满整个容器,所以此处我们要将默认值0改为1
+        flex-shrink:默认为1,如果容器缩小,则项目随之缩小,如果改为0
+        则项目不缩小,溢出容器,所以这里使用默认值1即可
+        flex-basis:对应设置盒子模型,优先级较单独设置低,所以一般不在此处
+        设置盒子模型,使用默认值auto,最终此处被更改为
+        flex:1 1 auto; 后两个值就是默认值所以省略最终
+        flex:1;容器放大 项目放大, 容器缩小 项目缩小 盒子模型需要单独设置
+    */
+    flex:1;
+    /* 开启弹性盒子 */
+    display:flex;
+}
+
+/* 设置侧边栏 */
+.aside{
+    width:200px;
+    background-color: #545c63;
+    color:whitesmoke;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 设置主页 */
+.main{
+    flex:1;
+    background-color: #8cada6;
+}
+
+/* --------------------------------------- */
+/* 微调页眉 */
+/* 设置左侧标题 */
+.header .title{
+    /* 向右偏移 */
+    margin-left: 100px;
+}
+/* 设置logo */
+.header .logo{
+    width:30px;
+    /* 垂直对齐 */
+    vertical-align: middle;
+}
+.header .info{
+    /* 向左偏移100像素 */
+    margin-right: 100px;
+}
+/* ------------------------------------------ */
+/* 微调侧边栏 */
+.aside ul{
+    /* 去掉列表徽记 */
+    list-style-type: none;
+    /* 去掉默认存在的左内边距 */
+    padding-left: 0;
+}
+/* 默认链接样式 */
+.aside ul li a{
+    /* 设置颜色 */
+    color:whitesmoke;
+    /* 去掉下划线 */
+    text-decoration: none;
+}
+/* 鼠标滑过链接样式 */
+.aside ul li a:hover{
+    color:#ff770f;
+    /* 添加下划线 */
+    text-decoration: underline;
+}
+
+.aside ul li{
+    margin:50px;
+}

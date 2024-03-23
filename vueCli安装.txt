@@ -1,0 +1,4 @@
+1.更换cnpm淘宝镜像-------npm install -g cnpm --registry=https://registry.npm.taobao.org
+
+2.安装vuecli -----cnpm i -g @vue/cli@3.10.0
+
