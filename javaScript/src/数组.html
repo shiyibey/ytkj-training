@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数组</title>
+</head>
+<body>
+<script>
+        function testArr(){
+            //1.使用数组这个类型提供的构造函数（构造器） 来创建
+            //  let
+            //  const 类似于常量
+            const arr1  = new Array()
+            arr1[0] ='etoak'
+            arr1[1] = true
+            arr1[2] = null
+            arr1[3] = 100
+            arr1.push("新加的元素")
+            arr1.unshift("首添加的元素")
+            //es6 箭头函数 =>   java: ->
+            arr1.forEach(a =>
+                console.log("1",this)
+            )
+            arr1.forEach(function (a,index) {
+                console.log(this)
+            })
+            console.log("====================================")
+            // (删除起始索引,删除元素个数,[替换的值])
+            arr1.splice(1,1,'易途')
+            arr1.forEach((a,index) => {
+                console.log(`${a}对应的下标：${index}`)
+            })
+            // filter 符合过滤条件的表达式,则返回这个数据,最终组成一个新的数组
+            let arrFilter = arr1.filter(function (a){
+                //  == 只是判断值是否相等
+                //  === 先判断类型 在判断值是否相等
+                return a === '100'
+            })
+            console.log(arrFilter)
+            // find  仅仅返回第一个符合条件的,返回的就是一个值 { return } 可以省略
+            let arrFind = arr1.find( a=> { return a===100})
+            console.log(arrFind)
+            // 一般不搭配 表达式,如果搭配表达式则仅仅返回 （数组里存放的对象效果更佳）
+            // 2.创建方式 直接创建
+            //let objArr = [{name:'v',age:21},{name:'杰克',age:22},{name:'强尼·银手',age:36}]
+            let objArr = [{name:'v',age:21},{name:'杰克',age:22},{name:'强尼·银手',age:36},{name:'强尼·黑手',age:50}]
+            let arrMap = objArr.map(o => 1)
+            console.log(arrMap)
+            //  indexOf 返回数组中后面字符的索引,如果无法查询到,则返回 -1
+            let arrIndexOf1 =  arr1.indexOf(100)
+            let arrIndexOf2 =  arr1.indexOf(101)
+            console.log(arrIndexOf1,arrIndexOf2)
+
+
+            //  取出年龄大于 30的对象
+            console.log( objArr.filter(o => o.age>30 ))
+        }
+        testArr()
+</script>
+</body>
+</html>

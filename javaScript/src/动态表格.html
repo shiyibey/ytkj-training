@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动态表格</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header" >
+            <input type="text" placeholder="请输入姓名"
+            autofocus value="">
+            性别: <input type="radio" name="gender" value="0"
+            checked>女
+            <input type="radio" name="gender" value="1">男
+            居住地: 
+            <select name="location" id="location">
+                <option value="济南">济南</option>
+                <option value="青岛">青岛</option>
+                <option value="淄博">淄博</option>
+                <option value="济宁">济宁</option>
+            </select>
+            <input type="button" value="注册" 
+            onclick="add()">
+        </header>
+        <section class="main">
+
+        </section>
+    </div>
+    <!-- 类似css中的外链式,将独立的js文件引入到本页面,注意存在先后顺序
+    必须从上到下 先引入,再使用,另外 script标签 要么引 要么写
+    二选一,不能兼得 source 源头 用来引入外部独立js-->
+    <script src="./js/datas.js"></script>
+    <script>
+
+        let id = 9
+        function  query(){
+            let table  =
+                `<table class="tb">
+                    <thead>
+                         <th>序号</th>
+                         <th>姓名</th>
+                         <th>性别</th>
+                         <th>居住地</th>
+                         <th>操作</th>
+                    </thead>
+                    <tbody>
+                `
+                persons.forEach((person,index)=>{
+                    table +=
+                        `<tr>
+                            <td>${index+1}</td>
+                            <td>${person.name}</td>
+                            <td>${person.gender===0?'女':'男'}</td>
+                            <td>${person.location}</td>
+                            <td>
+                                <span style="cursor: pointer" onclick="del(${index})">
+                                    删除
+                                </span>
+                            </td>
+                         </tr>
+                        `
+                })
+                table += '</tbody></table>'
+                document.querySelector(".main").innerHTML = table
+        }
+        query()
+
+        function del(index){
+            if(confirm('确认删除本条记录吗？')){
+                persons.splice(index,1)
+                query()
+            }
+        }
+
+        function add(){
+             //1.获取用户名
+            let name = document.querySelector("input[type=text]").value.trim()
+            if(!name){
+                alert("请填写用户名")
+                return
+            }
+            //2.获取用户性别
+            let gender = 0
+
+            let nodeRadios = document.querySelectorAll('input[type=radio]')
+            nodeRadios.forEach( nodeRadio =>{
+                if(nodeRadio.checked){
+                    gender = nodeRadio.value -0
+                }
+            })
+            //3.获取居住地
+            let location = document.querySelector("#location").value
+
+            //4.把获取到的信息添加到数组里
+            persons.push({
+                id: ++id,
+                name,
+                gender,
+                location
+            })
+            query()
+        }
+
+
+    
+    
+    
+    </script>    
+</body>
+</html>

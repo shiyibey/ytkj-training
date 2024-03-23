@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5:对象</title>
+</head>
+<body>
+    <script>
+        function testObj(){
+            /* 1:使用对象字面量创建对象 
+                    
+                const 对象名 = {
+                    属性名:属性值,
+                    属性名:属性值,
+                    属性名:属性值,
+                    ...
+                    //ES5
+                    方法名:function(){
+
+                    }
+                    //ES6
+                    方法名(){
+
+                    },
+                }
+                属性名没有任何引号,浏览器在解析时会将其
+                视作字符串,但是我们在写的时候不要添加引号
+                属性值根据数据类型决定
+
+                属性值 = 对象.属性名
+                属性值 = 对象['属性名'] 这种方式对中文以及关键字支持较好
+                对象.方法名()
+                
+            */
+            let age = 21
+            const person  = {
+                name:'v',
+                //es6新特性  age:age 可以直接age
+                age,
+                location:'夜之城',
+                hobby:['逛街','收集'],
+                run(){
+                    console.log(`${this.name}喜欢在${this.location}里${this.hobby[0]}`)
+                }
+            }
+            console.log(person.name)
+            console.log(person['age'])
+            let str ='age'
+            console.log(person[str])
+
+            person.run()
+
+
+
+
+            /* 
+                2:自己书写构造函数,构造对象
+            */
+            function Student(name,age,hobby){
+                this.name = name
+                this.age = age
+                this.hobby = hobby
+                this.test = function(){
+                    console.log(`${this.name}非常喜欢${this.hobby[0]}`)
+                }
+            }
+
+            const stu1 = new Student('v',20,['恶作剧'])
+            const stu2 = new Student('杰克',24,['工作'])
+
+            stu1.test()
+            stu2.test()
+            /* 3:使用 Object自带的构造函数创建对象 */
+            const obj = new Object()
+            obj.name = '强尼·银手'
+            obj.age = 33
+            console.log(obj)
+        }   
+        testObj()
+    </script>
+</body>
+</html>

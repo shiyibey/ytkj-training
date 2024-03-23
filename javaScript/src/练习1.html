@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>练习1</title>
+</head>
+<script>
+
+
+</script>
+<style>
+    #tb{
+        width: 200px;
+        border-collapse: collapse;
+    }
+    #tb,
+    td{
+        border: 2px solid coral;
+    }
+
+</style>
+<body>
+<!--    <input type='button' value="点我"> 一样的  -->
+    <button id="btn">点我试试！</button>
+    <hr>
+    <table id="tb">
+            <tr>
+                <td>默认的一行</td>
+            </tr>
+    </table>
+    <script>
+        /*
+        *  一般将js脚本写在全文末尾
+        *  1:保证优先加载html和css
+        *  2.保证模型创建完毕，在这个位置 不需要写 window.onload
+        * */
+        function etoak(){
+            //1.获取到按钮元素
+            let nodeBtn = document.getElementById('btn')
+            //2.给按钮的点击事件赋上一个函数
+            nodeBtn.onclick = function (){
+                //3.获取表格元素
+                let nodeTb = document.querySelector("#tb")
+                //4.创建出来一个tr
+                let nodeTr = document.createElement("tr")
+                // innerText 文本内容 不能输出标签
+                nodeTr.innerHTML="<td>我是添加的一行</td>"
+
+                nodeTb.append(nodeTr)
+                let r = Math.floor(Math.random() * 256)
+                let g = Math.floor(Math.random() * 256)
+                let b = Math.floor(Math.random() * 256)
+
+                nodeTb.style.backgroundColor = `rgb(${r},${g},${b})`
+                // background-color：rgb(256,256,256)
+                console.log(nodeTb)
+
+            }
+        }
+        // etoak 他是函数本身
+        // etoak() 调用函数
+
+    </script>
+</body>
+</html>

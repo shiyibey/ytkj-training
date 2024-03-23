@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>引入js的几种方式</title>
+</head>
+<body  onload="alert('Hello,World!')">
+    <script>
+
+            console.info('今天你做核酸了吗??????')
+
+            /* 弹出一个对话框 第一个值为对话框信息,第二个值
+            为默认值,返回值为最终填入的信息 */
+             let val = prompt('现在是几月了?',10)
+            console.log(val,typeof +val,typeof (val-0))
+
+            let x = 100
+            let y = true
+            let z = 1.1
+            let i = null
+            let j = 'etoak'
+            /* 直接从页面输出,支持html标签 */
+           /*
+           *  模板字符串
+           * */
+            let str = "字符串1"
+             str = str+"字符串2+"+"字符串3"
+            let str1 = "字符串1"
+            str1= `${str}字符串2字符串2`
+
+            document.write(`${x}+${y}=${x + y}<br>`)
+            document.write(`${x}+${z}=${x + z}<br>`)
+            document.write(`${x}+${i}=${x + i}<br>`)
+            document.write(`${x}+${j}=${x + j}<br>`)
+            document.write(`${z}+${y}=${z + y}<br>`)
+            document.write(`${i}+${y}=${i + y}<br>`)
+            document.write(`${i}+${j}=${i + j}<br>`)
+
+            /*  
+                使用 document.write() 从页面输出九九乘法表
+                for循环与java完全一致
+            */
+
+            for(let i =1;i<=9;i++){
+                for(let j =1;j<=i;j++){
+                    document.write(`${j}x${i}=${j*i}    `)
+                }
+                document.write('<br>')
+            }
+
+
+
+    </script>
+</body>
+
+</html>
