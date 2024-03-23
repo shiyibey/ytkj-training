@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+
+        隐藏元素：<input type="checkbox" v-model="flag">
+        <div :style="divStyle" v-if="!flag">v-if</div>
+        <div :style="divStyle" v-show="!flag">v-show</div>
+        <br>
+        隐藏元素：<button @click="count++">点击</button>
+        <div v-if="count===1" >v-if </div>
+        <div v-else-if="count===2">v-else-if</div>
+        <div v-else >v-else</div>
+    </div>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                flag:true,
+                flag2:true,
+                divStyle:'background-color: pink;width:200px;height:50px',
+                count:1
+
+            }
+
+        })
+
+
+    </script>
+
+</body>
+</html>

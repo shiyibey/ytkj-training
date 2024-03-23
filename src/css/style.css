@@ -1,0 +1,72 @@
+@charset "utf-8";
+
+html,body{
+    margin:0;
+    padding:0;
+    font-family: 喜鹊招牌体;
+    height:100%;
+}
+
+.container{
+    margin:0 auto;
+    width:80vw;
+    height:100vh;
+    background-color: whitesmoke;
+    box-shadow: 10px 10px 10px silver;
+    display: flex;
+    flex-direction: column;
+}
+
+.header{
+    background-color: #ddd;
+    height:10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header input{
+    margin:20px;
+}
+
+.main{
+    flex:1;
+    /* 开启弹性盒子 */
+    display: flex;
+    /* 主轴居中 */
+    justify-content: center;
+    /* 交叉轴起始排列 */
+    align-items: flex-start;
+}
+
+.tb{
+    /* 设置宽度 */
+    width:70vw;
+    /* 如果表格中的边框存在多条,则合并为一根 */
+    border-collapse: collapse;
+    /* 设置阴影 */
+    box-shadow: 20px 20px 20px gray;
+    /* 表格内部文本居中对齐 */
+    text-align: center;
+    /* 向下偏移100像素 */
+    margin-top:100px;
+}
+
+.tb,tr,th,td{
+    /* 设置边框 */
+    border:solid 1px #ddd;
+}
+
+.tb thead{
+    background-color: coral;
+    color:navy;
+}
+
+.tb tbody{
+    background-color: #b1c9b3;
+    color:brown;
+}
+
+
+
+

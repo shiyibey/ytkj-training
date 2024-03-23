@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+        {{ context | th }}
+        <input type="text" :value="context |th">
+    </div>
+    <hr>
+    <div id="app2">
+        {{context | th }}
+        {{context | thq }}
+    </div>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script>
+
+        new Vue({
+            el:'#app',
+            data:{
+                context:'听我说谢谢你'
+            },
+            filters:{
+                th(value){
+                    //  value 需要过滤的内容
+                    return  value.replace('谢谢','栓Q')
+                }
+            }
+
+        })
+        Vue.filter('thq',function (value){
+            return  value.replace('谢谢','**')
+        })
+
+        new Vue({
+            el:"#app2",
+            data:{
+                context:'听我说谢谢你'
+            }
+        })
+    </script>
+</body>
+</html>

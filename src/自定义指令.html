@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+        <div id="app">
+            <p  v-etoak="content">你好</p>
+            <input type="text"  v-focus>
+        </div>
+        <script src="../node_modules/vue/dist/vue.js"></script>
+        <script>
+            new Vue({
+                el:'#app',
+                data:{
+                    content:'hello World'
+                },
+                directives:{
+                    etoak:{
+                        bind(el){
+                            el.style.color = 'red'
+                        },
+                        inserted(el,binding){
+                            console.log(binding.value)
+                            el.innerText = binding.value
+                        }
+
+                    },
+                    focus:{
+                        bind(el){
+
+                        },
+                        inserted(el,binding){
+                            el.focus()
+                        }
+                    }
+                }
+
+            })
+
+        </script>
+</body>
+</html>

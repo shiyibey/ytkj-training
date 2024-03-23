@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+<!--            .number:将填入的值转换成number类型，如果无法转换，则不转换 -->
+        前端成绩：<input type="text" v-model.number="frontEndScore" >
+        <br>
+        后端成绩：<input type="text" v-model.number="backEndScore">
+        <br>
+        总成绩： <input type="text" v-model="totalScore">
+        总成绩(函数)： <input type="text" v-model="totalScoreMethod()">
+        <br>
+        总成绩(侦听前端和后端) ：{{ totalScore2}}
+
+    </div>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script>
+
+        new Vue({
+            el:"#app",
+            data:{
+                frontEndScore:100,
+                backEndScore:100,
+                totalScore2:0,
+                person:{
+                    name:'v',
+                    age:20
+                }
+            },
+            methods:{
+                totalScoreMethod(){
+                    return this.backEndScore + this.frontEndScore
+                }
+            },
+            computed:{
+                // totalScore(){
+                //     console.log("我是计算属性totalScore~")
+                //     return this.backEndScore + this.frontEndScore
+                // },
+                totalScore:{
+                    get(){
+                        return this.backEndScore + this.frontEndScore
+                    },
+                    set(val){
+                        console.log(val)
+                        let avgScore = val/2
+                        this.frontEndScore = avgScore
+                        this.backEndScore = avgScore
+                    }
+                }
+
+            },
+            watch:{
+                frontEndScore(newVal,oldVal){
+                   this.totalScore2 =  this.backEndScore + newVal
+
+                },
+                backEndScore:{
+                    /* 立即执行侦听器一次*/
+                    immediate:true,
+                    handler(newVal,oldVal){
+                        this.totalScore2 =  this.frontEndScore + newVal
+                    }
+
+                },
+                person:{
+                    immediate:true,
+                    deep:true, // 深度监听
+                    handler(newVal,oldVal){
+                        console.log(newVal)
+                    }
+                }
+
+            }
+
+
+        })
+
+
+    </script>
+</body>
+</html>

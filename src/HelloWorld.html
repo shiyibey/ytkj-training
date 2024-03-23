@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--    书写一个被vue管理的模板 -->
+    <div id="app">
+    <!--  在vue基础语法当中，有俩大核心语法          -->
+    <!--
+          1.插值语法
+    -->
+        {{ msg  }}
+        {{ num1*num2 }}
+        {{ flag?val1:val2 }}
+        {{val3}}
+        {{val4}}
+        {{val5}}
+    <!--
+        2.指令语法
+          1.v-model
+           v-model 取代 元素本身的value属性
+    -->
+        <input type="text" v-model="name"  >
+<!--        当时属性值是true或者false 双向绑定
+            当时属性值是真假值 他只能单向绑定
+        -->
+        <input type="checkbox" v-model="checkbox">
+<!--
+       2. v-html innerHtml
+        v-text innerText
+-->
+        <div v-html="val5">
+        </div>
+        <div v-text="val5">
+        </div>
+<!--        3. v-once 一次性插值 只绑定一次，之后就会失去任何绑定效果 -->
+        <span v-once>{{msg}}</span>
+
+<!--        4.v-bind(只支持单向绑定) 绑定元素属性   : 简写方式    -->
+        <img  :src="imgPath"  :title="imgTitle" v-bind:style="imgStyle">
+
+        <input type="text" v-bind:value="name">
+<!--        5.v-on 绑定动作   @ 简写方式 -->
+        <button @click="add" >{{ count }}</button>
+
+    </div>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script>
+        const data ={
+            msg:"Hello World",
+            num1:10,
+            num2:'null',
+            flag:true,
+            val1:'今天不用做核酸~',
+            val2:'今天需要栓',
+            val3:null,
+            val4:undefined,
+            val5:'<span style="font-weight: 500">加粗了吗</span>',
+            name:'v',
+            checkbox:'1',
+            imgPath:'./img/1+2.jpg',
+            imgTitle:'这是一张图片',
+            imgStyle:'width:50px;height:50px',
+            count:0
+        }
+
+       let vm =  new Vue({
+            // el：element的简写，表示vue实例管理的模板的位置，这地方使用了选择器
+            el:'#app',
+            data,
+           // 设置函数位置
+            methods:{
+                add(){
+
+                    /*
+                    *  this：如果放在Vue实例当中，则表示的是本实例
+                    *
+                    * */
+                    this.count++
+
+                }
+            }
+
+        })
+        console.log(vm)
+    </script>
+</body>
+</html>

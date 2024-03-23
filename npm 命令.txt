@@ -1,0 +1,7 @@
+nodejs下载路径 https://nodejs.org/zh-cn/download/
+
+初始化 （-y 的含义：yes的意思，在init的时候省去了敲回车的步骤，生成的默认的package.json）
+npm init -y
+
+下载vue依赖
+npm i vue@2.6.14

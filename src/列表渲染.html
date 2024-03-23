@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+        <div id="app">
+            <ul>
+                <li v-for="(a,index) in arr">{{index+1 +':'+ a }} </li>
+            </ul>
+            <table>
+                <tr>
+                    <td>序号</td>
+                    <td>姓名</td>
+                    <td>年龄</td>
+                </tr>
+                <tr v-for="(ao,index) in arrObj">
+                    <td>{{index+1}}</td>
+                    <td>{{ao.name}}</td>
+                    <td>{{ao.age}}</td>
+                </tr>
+            </table>
+
+            <ul>
+
+                <li :id="key"  v-for="(value,key,index) in obj"  >
+                    {{`${index+1}.属性名：${key},属性值：${value}`}}
+                </li>
+            </ul>
+
+
+
+        </div>
+        <script src="../node_modules/vue/dist/vue.js"></script>
+        <script>
+            new Vue({
+                el:'#app',
+                data:{
+                    arr:['html','js','css','vue'],
+                    arrObj:[{name:'v',age:21},{name:'杰克',age:23},{name:'海绵宝宝',age:20}],
+                    obj:{
+                        name:'小明',
+                        age:18,
+                        phone:'1511111111',
+                        email:'2022@etoak.com'
+                    }
+                },
+
+            })
+
+        </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box1{
+            background-color: pink;
+        }
+        .box2{
+            background-color: yellowgreen;
+        }
+        .box3{
+            background-color: aqua;
+        }
+        .box4{
+            background-color: crimson;
+        }
+        .box5{
+            background-color: lightblue;
+        }
+    </style>
+</head>
+<body>
+        <div id="app">
+            <p :class="val1" >绑定class 后面是字符串</p>
+            <p :class="{box2:val2,box3:val3}">绑定class 后面是对象</p>
+            <p :class="['box4','box5']">绑定class 后面是数组</p>
+            <p :style="{'background-color':value1,'color':value2}">绑定style 后面是对象</p>
+        </div>
+        <script src="../node_modules/vue/dist/vue.js"></script>
+        <script>
+            new Vue({
+                el:'#app',
+                data:{
+                    val1:'box1',
+                    val2:'',
+                    val3:true,
+                    value1:'green',
+                    value2:'white'
+                }
+
+
+            })
+
+        </script>
+</body>
+</html>

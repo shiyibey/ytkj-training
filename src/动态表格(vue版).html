@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动态表格</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <div class="container" id="app">
+        <header class="header" >
+            <input type="text" placeholder="请输入姓名"
+            autofocus  v-model="form.name">
+            性别: <input type="radio"  v-model="form.gender" value="0"
+            checked>女
+            <input type="radio"  v-model="form.gender" value="1">男
+            居住地: 
+            <select name="location" id="location"  v-model="form.location">
+                <option value="济南" selected>济南</option>
+                <option value="青岛">青岛</option>
+                <option value="淄博">淄博</option>
+                <option value="济宁">济宁</option>
+            </select>
+            <input type="button" value="注册" 
+            @click="add">
+        </header>
+        <section class="main">
+                <table class="tb">
+                    <thead>
+                        <tr>
+                            <th>序号</th>
+                            <th>姓名</th>
+                            <th>性别</th>
+                            <th>居住地</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="(person,index) in persons">
+                                <td>{{index+1}}</td>
+                                <td>{{person.name}}</td>
+<!--                                <td>{{person.gender==0?'女':'男'}}</td>-->
+                                <td>{{person.gender | genderFilter}}</td>
+                                <td>{{person.location}}</td>
+                            <td><span @click="del(index)">删除</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+        </section>
+    </div>
+    <!-- 类似css中的外链式,将独立的js文件引入到本页面,注意存在先后顺序
+    必须从上到下 先引入,再使用,另外 script标签 要么引 要么写
+    二选一,不能兼得 source 源头 用来引入外部独立js-->
+    <script src="./js/datas.js"></script>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script>
+        // { id: 1, name: 'elena', gender: 0, location: '济南', },
+        new Vue({
+            el:'#app',
+            data:{
+                form:{
+                    name:'',
+                    gender:0,
+                    location:''
+                },
+                persons
+            },
+            methods:{
+                add(){
+                    if(!this.form.name){
+                        alert("请填写用户名~")
+                        return
+                    }
+                    this.persons.push(this.form)
+
+                },
+                del(index){
+                    if(confirm('确认删除本条记录吗？')){
+                        this.persons.splice(index,1)
+                    }
+
+                }
+            },
+            filters:{
+                genderFilter(value){
+                    return value==0?'女':'男'
+                }
+            }
+        })
+
+    
+    
+    
+    </script>    
+</body>
+</html>
